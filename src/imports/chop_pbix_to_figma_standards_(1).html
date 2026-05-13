@@ -1,0 +1,1031 @@
+
+<!-- saved from url=(0069)file:///Users/admin/Downloads/chop_pbix_to_figma_standards%20(1).html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',sans-serif;font-size:13px;color:var(--color-text-primary)}
+.wrap{padding:1.25rem 0}
+
+.chop-bar{background:#005587;border-radius:8px 8px 0 0;padding:10px 16px;display:flex;align-items:center;gap:10px}
+.chop-logo{background:#fff;border-radius:5px;padding:3px 7px;font-size:10px;font-weight:700;color:#005587;letter-spacing:-0.3px}
+.chop-bar-title{color:#fff;font-size:13px;font-weight:600}
+.chop-bar-sub{color:#41B6E6;font-size:11px;margin-left:auto}
+
+.tab-row{display:flex;border-bottom:0.5px solid var(--color-border-tertiary);margin-bottom:0;background:var(--color-background-secondary);border-radius:0}
+.tab{padding:8px 16px;font-size:12px;font-weight:500;cursor:pointer;color:var(--color-text-secondary);border-bottom:2px solid transparent;background:transparent;border:none;font-family:'Segoe UI',sans-serif;transition:color .15s}
+.tab.on{color:#005587;border-bottom:2px solid #005587}
+.tab-content{display:none;padding:1rem}
+.tab-content.on{display:block}
+
+.section-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--color-text-secondary);margin-bottom:8px;margin-top:14px}
+.section-label:first-child{margin-top:0}
+
+.token-row{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.token-row:last-child{border-bottom:none}
+.swatch{width:28px;height:28px;border-radius:5px;flex-shrink:0;border:0.5px solid rgba(0,0,0,0.1)}
+.token-name{font-size:12px;font-weight:500;color:var(--color-text-primary);flex:1}
+.token-hex{font-size:11px;font-family:'Courier New',monospace;color:var(--color-text-secondary);min-width:70px}
+.token-usage{font-size:11px;color:var(--color-text-tertiary);flex:2}
+.copy-hex{font-size:10px;padding:2px 7px;border:0.5px solid var(--color-border-secondary);border-radius:4px;background:transparent;color:var(--color-text-secondary);cursor:pointer;font-family:'Segoe UI',sans-serif}
+.copy-hex:hover{background:var(--color-background-secondary)}
+
+.step-card{border:0.5px solid var(--color-border-tertiary);border-radius:8px;margin-bottom:10px;overflow:hidden}
+.step-head{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--color-background-secondary);cursor:pointer;user-select:none}
+.step-num-circle{width:24px;height:24px;border-radius:50%;background:#005587;color:#fff;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-head-title{font-size:13px;font-weight:500;color:var(--color-text-primary);flex:1}
+.step-head-badge{font-size:10px;padding:2px 8px;border-radius:4px;background:#E1F0F8;color:#005587;font-weight:500}
+.chevron{font-size:10px;color:var(--color-text-tertiary);transition:transform .2s}
+.chevron.open{transform:rotate(180deg)}
+.step-body{display:none;padding:12px 14px;border-top:0.5px solid var(--color-border-tertiary)}
+.step-body.open{display:block}
+.step-body p{font-size:12px;color:var(--color-text-secondary);line-height:1.6;margin-bottom:8px}
+.step-body p:last-child{margin-bottom:0}
+.code-block{background:var(--color-background-secondary);border-radius:6px;padding:8px 12px;font-size:11px;font-family:'Courier New',monospace;color:var(--color-text-primary);margin:8px 0;line-height:1.55;border:0.5px solid var(--color-border-tertiary);white-space:pre-wrap}
+.inline-code{font-family:'Courier New',monospace;font-size:11px;background:var(--color-background-secondary);padding:1px 5px;border-radius:3px;color:var(--color-text-primary)}
+
+.figma-mock{background:#f5f5f5;border-radius:8px;padding:10px;margin:10px 0;border:0.5px solid #ddd}
+.figma-mock-label{font-size:10px;color:#888;margin-bottom:8px;font-weight:500}
+.figma-frame{background:#fff;border:1.5px dashed #41B6E6;border-radius:4px;padding:8px;position:relative}
+.figma-tag{position:absolute;top:-9px;left:8px;background:#41B6E6;color:#fff;font-size:9px;padding:1px 6px;border-radius:3px;font-weight:600}
+.figma-sidebar{width:36px;background:#005587;border-radius:3px;float:left;margin-right:8px;height:80px}
+.figma-body{margin-left:44px}
+.figma-slicer-row{display:flex;gap:4px;margin-bottom:6px}
+.figma-slicer{flex:1;height:14px;background:#E1F5F9;border:0.5px solid #41B6E6;border-radius:2px}
+.figma-kpi-row{display:flex;gap:4px;margin-bottom:6px}
+.figma-kpi{flex:1;height:20px;background:#fff;border:0.5px solid #cdced6;border-radius:2px;display:flex;align-items:center;justify-content:center}
+.figma-kpi-dot{width:10px;height:3px;background:#E1176B;border-radius:1px}
+.figma-chart-row{display:flex;gap:4px}
+.figma-chart{flex:1;height:30px;background:#fff;border:0.5px solid #cdced6;border-radius:2px}
+.clearfix::after{content:'';display:table;clear:both}
+
+.api-card{background:var(--color-background-secondary);border-radius:6px;padding:10px 12px;margin:8px 0;border-left:3px solid #005587}
+.api-title{font-size:12px;font-weight:600;color:var(--color-text-primary);margin-bottom:4px}
+.api-desc{font-size:11px;color:var(--color-text-secondary);line-height:1.5}
+
+.main-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:0 0 8px 8px;overflow:hidden}
+</style>
+
+</head><body><h2 class="sr-only">Guide for applying CHOP .pbix template standards to Figma screens</h2>
+
+<div class="wrap">
+<div class="chop-bar">
+  <div class="chop-logo">CHOP</div>
+  <div class="chop-bar-title">Applying CHOP .pbix standards → Figma</div>
+  <div class="chop-bar-sub">CHOP 2026 template · 7 pages</div>
+</div>
+
+<div class="main-card">
+  <div class="tab-row">
+    <button class="tab on" onclick="showTab(&#39;tokens&#39;,this)">Design tokens</button>
+    <button class="tab" onclick="showTab(&#39;layout&#39;,this)">Layout grid</button>
+    <button class="tab" onclick="showTab(&#39;steps&#39;,this)">Step-by-step</button>
+    <button class="tab" onclick="showTab(&#39;api&#39;,this)">Figma API code</button>
+  </div>
+
+  <div id="tab-tokens" class="tab-content on">
+    <div class="section-label">CHOP 2026 color tokens — from your .pbix theme</div>
+    <div id="colorRows">
+    <div class="token-row">
+      <div class="swatch" style="background:#005587"></div>
+      <span class="token-name">Navy (primary)</span>
+      <span class="token-hex">#005587</span>
+      <span class="token-usage">Sidebar, headers, primary buttons, KPI accents</span>
+      <button class="copy-hex" onclick="copyText(&#39;#005587&#39;,this)">Copy</button>
+    </div>
+    <div class="token-row">
+      <div class="swatch" style="background:#41B6E6"></div>
+      <span class="token-name">Cyan (accent)</span>
+      <span class="token-hex">#41B6E6</span>
+      <span class="token-usage">Slicer borders, links, secondary highlights</span>
+      <button class="copy-hex" onclick="copyText(&#39;#41B6E6&#39;,this)">Copy</button>
+    </div>
+    <div class="token-row">
+      <div class="swatch" style="background:#E1176B"></div>
+      <span class="token-name">Pink (data color 3)</span>
+      <span class="token-hex">#E1176B</span>
+      <span class="token-usage">KPI values, donut chart segment 1, alerts</span>
+      <button class="copy-hex" onclick="copyText(&#39;#E1176B&#39;,this)">Copy</button>
+    </div>
+    <div class="token-row">
+      <div class="swatch" style="background:#6F972B"></div>
+      <span class="token-name">Olive green</span>
+      <span class="token-hex">#6F972B</span>
+      <span class="token-usage">Positive deltas, bar chart segment 2</span>
+      <button class="copy-hex" onclick="copyText(&#39;#6F972B&#39;,this)">Copy</button>
+    </div>
+    <div class="token-row">
+      <div class="swatch" style="background:#786452"></div>
+      <span class="token-name">Brown</span>
+      <span class="token-hex">#786452</span>
+      <span class="token-usage">Neutral data series 5</span>
+      <button class="copy-hex" onclick="copyText(&#39;#786452&#39;,this)">Copy</button>
+    </div>
+    <div class="token-row">
+      <div class="swatch" style="background:#0D7BBB"></div>
+      <span class="token-name">Mid blue</span>
+      <span class="token-hex">#0D7BBB</span>
+      <span class="token-usage">Chart series 6, secondary bars</span>
+      <button class="copy-hex" onclick="copyText(&#39;#0D7BBB&#39;,this)">Copy</button>
+    </div>
+    <div class="token-row">
+      <div class="swatch" style="background:#C0165C"></div>
+      <span class="token-name">Deep pink</span>
+      <span class="token-hex">#C0165C</span>
+      <span class="token-usage">Negative trend, chart series 7</span>
+      <button class="copy-hex" onclick="copyText(&#39;#C0165C&#39;,this)">Copy</button>
+    </div>
+    <div class="token-row">
+      <div class="swatch" style="background:#5E7F24"></div>
+      <span class="token-name">Dark green</span>
+      <span class="token-hex">#5E7F24</span>
+      <span class="token-usage">Chart series 8, secondary positive</span>
+      <button class="copy-hex" onclick="copyText(&#39;#5E7F24&#39;,this)">Copy</button>
+    </div>
+    <div class="token-row">
+      <div class="swatch" style="background:#fcfcfd"></div>
+      <span class="token-name">Background</span>
+      <span class="token-hex">#fcfcfd</span>
+      <span class="token-usage">Page bg, visual bg — all canvases</span>
+      <button class="copy-hex" onclick="copyText(&#39;#fcfcfd&#39;,this)">Copy</button>
+    </div>
+    <div class="token-row">
+      <div class="swatch" style="background:#1c2024"></div>
+      <span class="token-name">Foreground</span>
+      <span class="token-hex">#1c2024</span>
+      <span class="token-usage">All body text, titles</span>
+      <button class="copy-hex" onclick="copyText(&#39;#1c2024&#39;,this)">Copy</button>
+    </div>
+    <div class="token-row">
+      <div class="swatch" style="background:#60646c"></div>
+      <span class="token-name">Muted text</span>
+      <span class="token-hex">#60646c</span>
+      <span class="token-usage">Labels, subtitles, secondary text</span>
+      <button class="copy-hex" onclick="copyText(&#39;#60646c&#39;,this)">Copy</button>
+    </div>
+    <div class="token-row">
+      <div class="swatch" style="background:#cdced6"></div>
+      <span class="token-name">Border / divider</span>
+      <span class="token-hex">#cdced6</span>
+      <span class="token-usage">All visual borders, table dividers, grid lines</span>
+      <button class="copy-hex" onclick="copyText(&#39;#cdced6&#39;,this)">Copy</button>
+    </div>
+    <div class="token-row">
+      <div class="swatch" style="background:#f0f0f3"></div>
+      <span class="token-name">Canvas outspace</span>
+      <span class="token-hex">#f0f0f3</span>
+      <span class="token-usage">Outside page area in Power BI canvas</span>
+      <button class="copy-hex" onclick="copyText(&#39;#f0f0f3&#39;,this)">Copy</button>
+    </div></div>
+    <div class="section-label" style="margin-top:16px">Typography tokens</div>
+    <div id="typRows">
+    <div class="token-row">
+      <span class="token-name">KPI value</span>
+      <span class="token-hex" style="min-width:160px">Arial Bold 36px</span>
+      <span class="token-usage">Card visual value text</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name">KPI label</span>
+      <span class="token-hex" style="min-width:160px">Arial Regular 10.5px</span>
+      <span class="token-usage">Card visual label (above value)</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name">Page title</span>
+      <span class="token-hex" style="min-width:160px">Segoe UI Bold 14px</span>
+      <span class="token-usage">Textbox at y=16 h=33</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name">Axis labels</span>
+      <span class="token-hex" style="min-width:160px">Segoe UI Regular 9px</span>
+      <span class="token-usage">X/Y axis tick labels</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name">Slicer text</span>
+      <span class="token-hex" style="min-width:160px">Calibri Regular 10px</span>
+      <span class="token-usage">Slicer item text</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name">Slicer header</span>
+      <span class="token-hex" style="min-width:160px">Calibri Bold 10px</span>
+      <span class="token-usage">Slicer header label</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name">Table body</span>
+      <span class="token-hex" style="min-width:160px">Segoe UI Regular 9px</span>
+      <span class="token-usage">tableEx rows</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name">Legend</span>
+      <span class="token-hex" style="min-width:160px">Segoe UI Regular 9px</span>
+      <span class="token-usage">Chart legend items</span>
+    </div></div>
+    <div class="section-label" style="margin-top:16px">Spacing &amp; border tokens</div>
+    <div id="spacingRows">
+    <div class="token-row">
+      <span class="token-name">Visual padding</span>
+      <span class="token-hex" style="min-width:140px">16px all sides</span>
+      <span class="token-usage">All visual containers</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name">Border radius</span>
+      <span class="token-hex" style="min-width:140px">0px</span>
+      <span class="token-usage">All visuals (square corners)</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name">Border width</span>
+      <span class="token-hex" style="min-width:140px">0.5px</span>
+      <span class="token-usage">Visual borders, dividers</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name">Grid line</span>
+      <span class="token-hex" style="min-width:140px">1px solid #e0e1e6</span>
+      <span class="token-usage">Chart axis gridlines</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name">Row padding</span>
+      <span class="token-hex" style="min-width:140px">4px</span>
+      <span class="token-usage">Table row padding</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name">Legend position</span>
+      <span class="token-hex" style="min-width:140px">Top</span>
+      <span class="token-usage">All chart legends</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name">Title show</span>
+      <span class="token-hex" style="min-width:140px">true</span>
+      <span class="token-usage">All visual titles visible</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name">Drop shadow</span>
+      <span class="token-hex" style="min-width:140px">off</span>
+      <span class="token-usage">No shadows on any visual</span>
+    </div></div>
+  </div>
+
+  <div id="tab-layout" class="tab-content">
+    <div class="section-label">CHOP canvas layout — pixel values from your .pbix</div>
+    <div class="figma-mock">
+      <div class="figma-mock-label">Figma frame: 1260 × 720 px — replicate this from your .pbix layout</div>
+      <div class="figma-frame clearfix">
+        <div class="figma-tag">Frame</div>
+        <div class="figma-sidebar"></div>
+        <div class="figma-body">
+          <div class="figma-slicer-row">
+            <div class="figma-slicer"></div><div class="figma-slicer"></div>
+            <div class="figma-slicer"></div><div class="figma-slicer"></div>
+          </div>
+          <div class="figma-kpi-row">
+            <div class="figma-kpi"><div class="figma-kpi-dot"></div></div>
+            <div class="figma-kpi"><div class="figma-kpi-dot" style="background:#005587"></div></div>
+            <div class="figma-kpi"><div class="figma-kpi-dot" style="background:#6F972B"></div></div>
+            <div class="figma-kpi"><div class="figma-kpi-dot" style="background:#41B6E6"></div></div>
+          </div>
+          <div class="figma-chart-row">
+            <div class="figma-chart"></div>
+            <div class="figma-chart"></div>
+            <div class="figma-chart"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="layoutRows">
+    <div class="token-row">
+      <span class="token-name" style="min-width:170px">Canvas size</span>
+      <span class="token-hex" style="min-width:200px;font-family:&#39;Courier New&#39;,monospace;font-size:11px">1260 × 720 px</span>
+      <span class="token-usage" style="color:var(--color-text-info)">Frame W=1260 H=720</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name" style="min-width:170px">Sidebar</span>
+      <span class="token-hex" style="min-width:200px;font-family:&#39;Courier New&#39;,monospace;font-size:11px">x=0 y=0 w=58 h=720</span>
+      <span class="token-usage" style="color:var(--color-text-info)">Rectangle fill #005587</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name" style="min-width:170px">Logo (GENE)</span>
+      <span class="token-hex" style="min-width:200px;font-family:&#39;Courier New&#39;,monospace;font-size:11px">x=10 y=61 w=39 h=39</span>
+      <span class="token-usage" style="color:var(--color-text-info)">Image component</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name" style="min-width:170px">Page title textbox</span>
+      <span class="token-hex" style="min-width:200px;font-family:&#39;Courier New&#39;,monospace;font-size:11px">x=75 y=16 w=960 h=33</span>
+      <span class="token-usage" style="color:var(--color-text-info)">Text frame 14px Bold Segoe UI</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name" style="min-width:170px">Slicer row 1</span>
+      <span class="token-hex" style="min-width:200px;font-family:&#39;Courier New&#39;,monospace;font-size:11px">y=0 h=58 — 4 slicers x=0,300,599,899</span>
+      <span class="token-usage" style="color:var(--color-text-info)">Auto layout row</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name" style="min-width:170px">Slicer row 2</span>
+      <span class="token-hex" style="min-width:200px;font-family:&#39;Courier New&#39;,monospace;font-size:11px">y=62 h=54 — 4 slicers x=0,299,599,898</span>
+      <span class="token-usage" style="color:var(--color-text-info)">Auto layout row</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name" style="min-width:170px">KPI card 1</span>
+      <span class="token-hex" style="min-width:200px;font-family:&#39;Courier New&#39;,monospace;font-size:11px">x=75 y=187 w=260 h=114</span>
+      <span class="token-usage" style="color:var(--color-text-info)">Component: KPI Card</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name" style="min-width:170px">KPI card 2</span>
+      <span class="token-hex" style="min-width:200px;font-family:&#39;Courier New&#39;,monospace;font-size:11px">x=343 y=187 w=260 h=114</span>
+      <span class="token-usage" style="color:var(--color-text-info)">Component: KPI Card</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name" style="min-width:170px">KPI card 3</span>
+      <span class="token-hex" style="min-width:200px;font-family:&#39;Courier New&#39;,monospace;font-size:11px">x=610 y=187 w=260 h=114</span>
+      <span class="token-usage" style="color:var(--color-text-info)">Component: KPI Card</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name" style="min-width:170px">KPI card 4 (wide)</span>
+      <span class="token-hex" style="min-width:200px;font-family:&#39;Courier New&#39;,monospace;font-size:11px">x=903 y=187 w=356 h=114</span>
+      <span class="token-usage" style="color:var(--color-text-info)">Component: KPI Card wide</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name" style="min-width:170px">Chart left</span>
+      <span class="token-hex" style="min-width:200px;font-family:&#39;Courier New&#39;,monospace;font-size:11px">x=75 y=307 w=374 h=390</span>
+      <span class="token-usage" style="color:var(--color-text-info)">Chart placeholder</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name" style="min-width:170px">Chart center</span>
+      <span class="token-hex" style="min-width:200px;font-family:&#39;Courier New&#39;,monospace;font-size:11px">x=459 y=307 w=411 h=390</span>
+      <span class="token-usage" style="color:var(--color-text-info)">Chart placeholder</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name" style="min-width:170px">Chart right</span>
+      <span class="token-hex" style="min-width:200px;font-family:&#39;Courier New&#39;,monospace;font-size:11px">x=903 y=307 w=356 h=390</span>
+      <span class="token-usage" style="color:var(--color-text-info)">Chart placeholder</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name" style="min-width:170px">Footer text</span>
+      <span class="token-hex" style="min-width:200px;font-family:&#39;Courier New&#39;,monospace;font-size:11px">x=75 y=700 w=300 h=19</span>
+      <span class="token-usage" style="color:var(--color-text-info)">Text frame 11px muted</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name" style="min-width:170px">Feedback icon</span>
+      <span class="token-hex" style="min-width:200px;font-family:&#39;Courier New&#39;,monospace;font-size:11px">x=1203 y=0 w=55 h=56</span>
+      <span class="token-usage" style="color:var(--color-text-info)">SVG icon component</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name" style="min-width:170px">Grid line color</span>
+      <span class="token-hex" style="min-width:200px;font-family:&#39;Courier New&#39;,monospace;font-size:11px">#e0e1e6 solid 1px</span>
+      <span class="token-usage" style="color:var(--color-text-info)">Stroke style on chart areas</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name" style="min-width:170px">Visual padding</span>
+      <span class="token-hex" style="min-width:200px;font-family:&#39;Courier New&#39;,monospace;font-size:11px">16px all sides</span>
+      <span class="token-usage" style="color:var(--color-text-info)">Auto layout padding</span>
+    </div>
+    <div class="token-row">
+      <span class="token-name" style="min-width:170px">Border radius</span>
+      <span class="token-hex" style="min-width:200px;font-family:&#39;Courier New&#39;,monospace;font-size:11px">0 (all visuals)</span>
+      <span class="token-usage" style="color:var(--color-text-info)">Corner radius = 0</span>
+    </div></div>
+  </div>
+
+  <div id="tab-steps" class="tab-content">
+    <div id="stepsContainer">
+    <div class="step-card">
+      <div class="step-head" onclick="toggleStep(0)">
+        <div class="step-num-circle">1</div>
+        <div class="step-head-title">Export CHOP standards as a Figma variable collection</div>
+        <span class="step-head-badge">Figma Variables</span>
+        <span class="chevron open" id="chev0">▼</span>
+      </div>
+      <div class="step-body open" id="body0">
+        <p>In Figma, open your design file and go to <span class="inline-code">Edit → Variables</span> (or press <span class="inline-code">⌥V</span>). Create a new collection called <strong>CHOP 2026</strong>. Add one Color variable per token from the table above — e.g. <span class="inline-code">color/primary/navy = #005587</span>, <span class="inline-code">color/data/pink = #E1176B</span>. Add Number variables for spacing: <span class="inline-code">spacing/visual-padding = 16</span>, <span class="inline-code">layout/sidebar-width = 58</span>.</p>
+        <div class="code-block">// Figma variable naming convention
+color/brand/navy       → #005587
+color/brand/cyan       → #41B6E6
+color/data/1-navy      → #005587
+color/data/2-cyan      → #41B6E6
+color/data/3-pink      → #E1176B
+color/data/4-green     → #6F972B
+color/text/primary     → #1c2024
+color/text/secondary   → #60646c
+color/border/default   → #cdced6
+color/bg/page          → #fcfcfd
+number/sidebar/width   → 58
+number/padding/visual  → 16
+number/canvas/width    → 1260
+number/canvas/height   → 720</div>
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-head" onclick="toggleStep(1)">
+        <div class="step-num-circle">2</div>
+        <div class="step-head-title">Set up the CHOP frame as a Figma template</div>
+        <span class="step-head-badge">Frame setup</span>
+        <span class="chevron" id="chev1">▼</span>
+      </div>
+      <div class="step-body" id="body1">
+        <p>Create a new Frame at exactly <strong>1260 × 720 px</strong> (matching the .pbix canvas). Name it <span class="inline-code">CHOP / Sample Page Layout</span>. Inside it, place a Rectangle at x=0, y=0, w=58, h=720 filled with <span class="inline-code">color/brand/navy</span> — this is the sidebar. Add a Text frame at x=75, y=16, w=960, h=33 with font <strong>Segoe UI Bold 14px</strong>, color <span class="inline-code">color/text/primary</span> for the page title.</p>
+        <div class="code-block">// Figma frame structure (matches .pbix layout exactly)
+Frame "CHOP/Sample Page Layout" [1260×720]
+  ├── Rectangle "Sidebar"         x=0   y=0   w=58  h=720  fill=#005587
+  ├── Image "Logo/GENE"           x=10  y=61  w=39  h=39
+  ├── Text "Page Title"           x=75  y=16  w=960 h=33   Segoe UI Bold 14px
+  ├── Group "Slicer Row 1"        x=0   y=0   h=58
+  │   ├── Slicer [x=0   w=287]
+  │   ├── Slicer [x=300 w=287]
+  │   ├── Slicer [x=599 w=287]
+  │   └── Slicer [x=899 w=286]
+  ├── Group "KPI Row"             y=187 h=114
+  │   ├── KPI Card [x=75  w=260]
+  │   ├── KPI Card [x=343 w=260]
+  │   ├── KPI Card [x=610 w=260]
+  │   └── KPI Card [x=903 w=356]
+  └── Group "Chart Row"           y=307 h=390
+      ├── Chart [x=75  w=374]
+      ├── Chart [x=459 w=411]
+      └── Chart [x=903 w=356]</div>
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-head" onclick="toggleStep(2)">
+        <div class="step-num-circle">3</div>
+        <div class="step-head-title">Create reusable CHOP components</div>
+        <span class="step-head-badge">Components</span>
+        <span class="chevron" id="chev2">▼</span>
+      </div>
+      <div class="step-body" id="body2">
+        <p>Build a Figma component library matching each .pbix visual type. For the <strong>KPI Card</strong>: a 260×114 frame, fill <span class="inline-code">color/bg/page</span>, border <span class="inline-code">color/border/default 0.5px</span>, containing a label text (Arial 10.5px, <span class="inline-code">color/text/secondary</span>) and value text (Arial Bold 36px, <span class="inline-code">color/data/3-pink</span>). For <strong>Slicers</strong>: use Calibri 10px, border <span class="inline-code">color/brand/cyan</span>. Create variants for each chart type.</p>
+        <div class="code-block">// KPI Card component structure
+Component "CHOP/KPI Card" [260×114]
+  fill: color/bg/page (#fcfcfd)
+  border: 0.5px color/border/default (#cdced6)
+  padding: 16px
+  ├── Text "label"   Arial 10.5px  color/text/secondary  position: above
+  └── Text "value"   Arial Bold 36px  color/data/3-pink   text-align: center
+
+// Slicer component
+Component "CHOP/Slicer/Dropdown" [auto × 54]
+  fill: color/bg/page
+  border: 0.5px color/brand/cyan
+  padding: 0
+  ├── Header  Calibri Bold 10px    color/brand/navy
+  └── Item    Calibri Regular 10px color/text/primary bg: #FFFFFF
+
+// Chart placeholder
+Component "CHOP/Chart/Placeholder" [auto × auto]
+  fill: color/bg/page
+  border: 0.5px color/border/default
+  padding: 16px
+  └── Label   Segoe UI 9px  color/text/secondary</div>
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-head" onclick="toggleStep(3)">
+        <div class="step-num-circle">4</div>
+        <div class="step-head-title">Import your Qlik screenshot into the CHOP frame</div>
+        <span class="step-head-badge">Screenshot overlay</span>
+        <span class="chevron" id="chev3">▼</span>
+      </div>
+      <div class="step-body" id="body3">
+        <p>Paste your Qlik screenshot into Figma (⌘V). Place it on a separate layer called <span class="inline-code">ref/qlik-screenshot</span>. Set its opacity to <strong>40%</strong> so it becomes a reference underlay. Resize it to 1260×720 to align with your CHOP frame. Now trace over it: place CHOP components (KPI cards, slicers, chart placeholders) at the positions that match the Qlik visual positions, snapping to the CHOP pixel grid.</p>
+        <div class="code-block">Layers panel structure:
+  ▸ Frame "CHOP/Sample Page Layout"   ← your working frame
+      ├── [all CHOP components above]
+      └── Image "ref/qlik-screenshot"
+            opacity: 40%
+            blend mode: Normal
+            x=58 y=0 w=1202 h=720   ← inside sidebar
+
+// Tip: use Figma's "Compare" view (⌥ drag) to 
+// toggle between Qlik original and CHOP redesign</div>
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-head" onclick="toggleStep(4)">
+        <div class="step-num-circle">5</div>
+        <div class="step-head-title">Apply CHOP theme via Figma API (automated)</div>
+        <span class="step-head-badge">Figma API</span>
+        <span class="chevron" id="chev4">▼</span>
+      </div>
+      <div class="step-body" id="body4">
+        <p>Use the Figma REST API to programmatically apply CHOP colors to every node in your file. First fetch the file's node tree, then iterate over nodes matching visual types (fill rectangles, text layers) and PATCH their fill colors to the CHOP palette. This is the fastest way to recolor an entire screenshot tracing in one pass. See the "Figma API code" tab for the full script.</p>
+        <div class="code-block">// High-level API flow
+1. GET /files/{fileKey}                 → full node tree
+2. Filter nodes by type (RECTANGLE, TEXT)
+3. Map each node's current color → nearest CHOP color
+4. PATCH /files/{fileKey}/nodes        → apply new fills
+5. GET /files/{fileKey}/images         → export result</div>
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-head" onclick="toggleStep(5)">
+        <div class="step-num-circle">6</div>
+        <div class="step-head-title">Export back to Power BI via Figma → .pbit</div>
+        <span class="step-head-badge">Round-trip</span>
+        <span class="chevron" id="chev5">▼</span>
+      </div>
+      <div class="step-body" id="body5">
+        <p>Once your Figma design uses CHOP standards throughout, use the Figma API to read the final frame layout (x, y, w, h for each visual placeholder) and feed those pixel coordinates directly into your Power BI template JSON spec. This ensures the Power BI report canvas matches the Figma design pixel-for-pixel, completing the round-trip from Qlik screenshot → CHOP Figma design → Power BI report.</p>
+        <div class="code-block">// Round-trip: Figma frame positions → Power BI spec
+const figmaFrame = await fetch('/files/KEY/nodes?ids=FRAME_ID');
+const nodes = figmaFrame.document.children;
+
+const pbiVisuals = nodes.map(node =&gt; ({
+  type:    mapFigmaTypeToPBI(node.name),  // KPI Card → cardVisual
+  x:       Math.round(node.absoluteBoundingBox.x - 58), // offset sidebar
+  y:       Math.round(node.absoluteBoundingBox.y),
+  width:   Math.round(node.absoluteBoundingBox.width),
+  height:  Math.round(node.absoluteBoundingBox.height),
+  theme:   'CHOP_20264117488249465352.json'
+}));</div>
+      </div>
+    </div></div>
+  </div>
+
+  <div id="tab-api" class="tab-content">
+    <div class="section-label">Method 1 — Figma REST API (apply tokens programmatically)</div>
+    <div id="apiCards">
+    <div class="api-card">
+      <div class="api-title"><span style="color:#005587;font-family:&#39;Courier New&#39;,monospace">GET</span>  GET file node tree</div>
+      <div style="font-size:10px;font-family:&#39;Courier New&#39;,monospace;color:var(--color-text-secondary);margin:3px 0">/v1/files/{fileKey}</div>
+      <div class="api-desc">Fetch entire Figma file structure including all frames, components, and their bounding boxes.</div>
+    </div>
+    <div class="api-card">
+      <div class="api-title"><span style="color:#005587;font-family:&#39;Courier New&#39;,monospace">GET</span>  GET specific nodes</div>
+      <div style="font-size:10px;font-family:&#39;Courier New&#39;,monospace;color:var(--color-text-secondary);margin:3px 0">/v1/files/{fileKey}/nodes?ids={nodeIds}</div>
+      <div class="api-desc">Fetch specific frames (e.g. the CHOP template frame) by node ID.</div>
+    </div>
+    <div class="api-card">
+      <div class="api-title"><span style="color:#005587;font-family:&#39;Courier New&#39;,monospace">GET</span>  GET images / export</div>
+      <div style="font-size:10px;font-family:&#39;Courier New&#39;,monospace;color:var(--color-text-secondary);margin:3px 0">/v1/images/{fileKey}?ids={nodeId}&amp;format=png&amp;scale=2</div>
+      <div class="api-desc">Export any frame or node as a PNG for use in Power BI or comparison with Qlik screenshot.</div>
+    </div>
+    <div class="api-card">
+      <div class="api-title"><span style="color:#005587;font-family:&#39;Courier New&#39;,monospace">Plugin API</span>  POST frame via plugin</div>
+      <div style="font-size:10px;font-family:&#39;Courier New&#39;,monospace;color:var(--color-text-secondary);margin:3px 0">figma.createFrame() + figma.createRectangle()</div>
+      <div class="api-desc">Use the Figma Plugin API inside a plugin script to programmatically create CHOP-compliant frames and apply color variables.</div>
+    </div></div>
+    <div class="section-label" style="margin-top:14px">Method 2 — Figma plugin script (run inside Figma)</div>
+    <div class="code-block" id="pluginCode">// Figma Plugin — apply CHOP 2026 standards to selected frame
+// Run this inside Figma via Plugins → Development → New Plugin
+
+const CHOP_COLORS = {
+  navy:   { r:0,    g:0.333, b:0.529 },   // #005587
+  cyan:   { r:0.255,g:0.714, b:0.902 },   // #41B6E6
+  pink:   { r:0.882,g:0.090, b:0.420 },   // #E1176B
+  green:  { r:0.435,g:0.592, b:0.169 },   // #6F972B
+  border: { r:0.804,g:0.808, b:0.839 },   // #cdced6
+  bg:     { r:0.988,g:0.988, b:0.992 },   // #fcfcfd
+  text:   { r:0.110,g:0.125, b:0.141 },   // #1c2024
+};
+
+const CHOP_FONTS = {
+  kpiValue: { family:'Arial', style:'Bold', size:36 },
+  kpiLabel: { family:'Arial', style:'Regular', size:10.5 },
+  title:    { family:'Segoe UI', style:'Bold', size:14 },
+  axis:     { family:'Segoe UI', style:'Regular', size:9 },
+};
+
+// Apply sidebar
+const sidebar = figma.createRectangle();
+sidebar.x = 0; sidebar.y = 0;
+sidebar.resize(58, 720);
+sidebar.fills = [{ type:'SOLID', color: CHOP_COLORS.navy }];
+sidebar.name = 'Sidebar';
+
+// Apply colors to all selected rectangles
+for (const node of figma.currentPage.selection) {
+  if (node.type === 'RECTANGLE') {
+    node.fills = [{ type:'SOLID', color: CHOP_COLORS.bg }];
+    node.strokes = [{ type:'SOLID', color: CHOP_COLORS.border }];
+    node.strokeWeight = 0.5;
+    node.cornerRadius = 0;
+  }
+  if (node.type === 'TEXT') {
+    await figma.loadFontAsync(CHOP_FONTS.title);
+    node.fontName = CHOP_FONTS.title;
+    node.fills = [{ type:'SOLID', color: CHOP_COLORS.text }];
+  }
+}
+figma.closePlugin('CHOP 2026 standards applied!');</div>
+    <div class="section-label" style="margin-top:14px">Method 3 — Claude Vision + Figma API (screenshot → CHOP frame)</div>
+    <div class="code-block" id="visionCode">// Claude Vision + Figma API — screenshot → CHOP Figma frame
+// Step 1: send Qlik screenshot to Claude Vision
+const base64Screenshot = '...'; // your Qlik PNG as base64
+
+const analysis = await fetch('https://api.anthropic.com/v1/messages', {
+  method: 'POST',
+  headers: { 'x-api-key': ANTHROPIC_KEY, 'anthropic-version': '2023-06-01',
+             'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    model: 'claude-sonnet-4-20250514', max_tokens: 2000,
+    messages: [{ role: 'user', content: [
+      { type: 'image', source: { type:'base64', media_type:'image/png', data: base64Screenshot } },
+      { type: 'text', text: `Analyse this Qlik dashboard screenshot.
+Return JSON: { visuals: [{type, title, approxX, approxY, approxW, approxH}],
+               kpis: [{label, value}], slicers: [{field}] }
+Map positions as percentages of a 1260x720 canvas.` }
+    ]}]
+  })
+}).then(r=&gt;r.json());
+
+const detected = JSON.parse(analysis.content[0].text);
+
+// Step 2: create CHOP Figma frame via REST API
+const FIGMA_KEY = 'YOUR_FIGMA_TOKEN';
+const FILE_KEY  = 'YOUR_FILE_KEY';
+
+// Map detected visuals → CHOP pixel positions
+const CHOP_SLOTS = {
+  kpi:    [{x:75,y:187,w:260,h:114},{x:343,y:187,w:260,h:114},
+           {x:610,y:187,w:260,h:114},{x:903,y:187,w:356,h:114}],
+  chart:  [{x:75,y:307,w:374,h:390},{x:459,y:307,w:411,h:390},
+           {x:903,y:307,w:356,h:390}],
+  slicer: [{x:0,y:0,w:287,h:58},{x:300,y:0,w:287,h:58},
+           {x:599,y:0,w:287,h:58},{x:899,y:0,w:286,h:58}],
+};
+
+// Output: Figma API node creation payload
+const nodes = [
+  { type:'RECTANGLE', name:'Sidebar', x:0, y:0, width:58, height:720,
+    fills:[{type:'SOLID', color:{r:0, g:0.333, b:0.529}}] },
+  ...detected.kpis.map((k,i) =&gt; ({
+    type:'FRAME', name:`KPI/${k.label}`, ...CHOP_SLOTS.kpi[i],
+    fills:[{type:'SOLID', color:{r:0.988,g:0.988,b:0.992}}]
+  })),
+  ...detected.visuals.filter(v=&gt;v.type.includes('chart')).map((v,i) =&gt; ({
+    type:'FRAME', name:`Chart/${v.title}`, ...CHOP_SLOTS.chart[i]
+  }))
+];
+console.log('Figma nodes ready:', JSON.stringify(nodes, null, 2));</div>
+  </div>
+</div>
+</div>
+
+<script>
+const CHOP = {
+  colors:[
+    {name:'Navy (primary)',       hex:'#005587', usage:'Sidebar, headers, primary buttons, KPI accents'},
+    {name:'Cyan (accent)',        hex:'#41B6E6', usage:'Slicer borders, links, secondary highlights'},
+    {name:'Pink (data color 3)',  hex:'#E1176B', usage:'KPI values, donut chart segment 1, alerts'},
+    {name:'Olive green',          hex:'#6F972B', usage:'Positive deltas, bar chart segment 2'},
+    {name:'Brown',                hex:'#786452', usage:'Neutral data series 5'},
+    {name:'Mid blue',             hex:'#0D7BBB', usage:'Chart series 6, secondary bars'},
+    {name:'Deep pink',            hex:'#C0165C', usage:'Negative trend, chart series 7'},
+    {name:'Dark green',           hex:'#5E7F24', usage:'Chart series 8, secondary positive'},
+    {name:'Background',           hex:'#fcfcfd', usage:'Page bg, visual bg — all canvases'},
+    {name:'Foreground',           hex:'#1c2024', usage:'All body text, titles'},
+    {name:'Muted text',           hex:'#60646c', usage:'Labels, subtitles, secondary text'},
+    {name:'Border / divider',     hex:'#cdced6', usage:'All visual borders, table dividers, grid lines'},
+    {name:'Canvas outspace',      hex:'#f0f0f3', usage:'Outside page area in Power BI canvas'},
+  ],
+  typography:[
+    {name:'KPI value',      spec:'Arial Bold 36px',  usage:'Card visual value text'},
+    {name:'KPI label',      spec:'Arial Regular 10.5px', usage:'Card visual label (above value)'},
+    {name:'Page title',     spec:'Segoe UI Bold 14px',  usage:'Textbox at y=16 h=33'},
+    {name:'Axis labels',    spec:'Segoe UI Regular 9px', usage:'X/Y axis tick labels'},
+    {name:'Slicer text',    spec:'Calibri Regular 10px', usage:'Slicer item text'},
+    {name:'Slicer header',  spec:'Calibri Bold 10px',    usage:'Slicer header label'},
+    {name:'Table body',     spec:'Segoe UI Regular 9px', usage:'tableEx rows'},
+    {name:'Legend',         spec:'Segoe UI Regular 9px', usage:'Chart legend items'},
+  ],
+  layout:[
+    {name:'Canvas size',       value:'1260 × 720 px',   figma:'Frame W=1260 H=720'},
+    {name:'Sidebar',           value:'x=0 y=0 w=58 h=720', figma:'Rectangle fill #005587'},
+    {name:'Logo (GENE)',       value:'x=10 y=61 w=39 h=39', figma:'Image component'},
+    {name:'Page title textbox',value:'x=75 y=16 w=960 h=33', figma:'Text frame 14px Bold Segoe UI'},
+    {name:'Slicer row 1',      value:'y=0 h=58 — 4 slicers x=0,300,599,899', figma:'Auto layout row'},
+    {name:'Slicer row 2',      value:'y=62 h=54 — 4 slicers x=0,299,599,898', figma:'Auto layout row'},
+    {name:'KPI card 1',        value:'x=75 y=187 w=260 h=114', figma:'Component: KPI Card'},
+    {name:'KPI card 2',        value:'x=343 y=187 w=260 h=114',figma:'Component: KPI Card'},
+    {name:'KPI card 3',        value:'x=610 y=187 w=260 h=114',figma:'Component: KPI Card'},
+    {name:'KPI card 4 (wide)', value:'x=903 y=187 w=356 h=114',figma:'Component: KPI Card wide'},
+    {name:'Chart left',        value:'x=75 y=307 w=374 h=390', figma:'Chart placeholder'},
+    {name:'Chart center',      value:'x=459 y=307 w=411 h=390',figma:'Chart placeholder'},
+    {name:'Chart right',       value:'x=903 y=307 w=356 h=390',figma:'Chart placeholder'},
+    {name:'Footer text',       value:'x=75 y=700 w=300 h=19',  figma:'Text frame 11px muted'},
+    {name:'Feedback icon',     value:'x=1203 y=0 w=55 h=56',   figma:'SVG icon component'},
+    {name:'Grid line color',   value:'#e0e1e6 solid 1px',       figma:'Stroke style on chart areas'},
+    {name:'Visual padding',    value:'16px all sides',           figma:'Auto layout padding'},
+    {name:'Border radius',     value:'0 (all visuals)',          figma:'Corner radius = 0'},
+  ],
+  steps:[
+    {
+      title:'Export CHOP standards as a Figma variable collection',
+      badge:'Figma Variables',
+      body:`In Figma, open your design file and go to <span class="inline-code">Edit → Variables</span> (or press <span class="inline-code">⌥V</span>). Create a new collection called <strong>CHOP 2026</strong>. Add one Color variable per token from the table above — e.g. <span class="inline-code">color/primary/navy = #005587</span>, <span class="inline-code">color/data/pink = #E1176B</span>. Add Number variables for spacing: <span class="inline-code">spacing/visual-padding = 16</span>, <span class="inline-code">layout/sidebar-width = 58</span>.`,
+      code:`// Figma variable naming convention
+color/brand/navy       → #005587
+color/brand/cyan       → #41B6E6
+color/data/1-navy      → #005587
+color/data/2-cyan      → #41B6E6
+color/data/3-pink      → #E1176B
+color/data/4-green     → #6F972B
+color/text/primary     → #1c2024
+color/text/secondary   → #60646c
+color/border/default   → #cdced6
+color/bg/page          → #fcfcfd
+number/sidebar/width   → 58
+number/padding/visual  → 16
+number/canvas/width    → 1260
+number/canvas/height   → 720`
+    },
+    {
+      title:'Set up the CHOP frame as a Figma template',
+      badge:'Frame setup',
+      body:`Create a new Frame at exactly <strong>1260 × 720 px</strong> (matching the .pbix canvas). Name it <span class="inline-code">CHOP / Sample Page Layout</span>. Inside it, place a Rectangle at x=0, y=0, w=58, h=720 filled with <span class="inline-code">color/brand/navy</span> — this is the sidebar. Add a Text frame at x=75, y=16, w=960, h=33 with font <strong>Segoe UI Bold 14px</strong>, color <span class="inline-code">color/text/primary</span> for the page title.`,
+      code:`// Figma frame structure (matches .pbix layout exactly)
+Frame "CHOP/Sample Page Layout" [1260×720]
+  ├── Rectangle "Sidebar"         x=0   y=0   w=58  h=720  fill=#005587
+  ├── Image "Logo/GENE"           x=10  y=61  w=39  h=39
+  ├── Text "Page Title"           x=75  y=16  w=960 h=33   Segoe UI Bold 14px
+  ├── Group "Slicer Row 1"        x=0   y=0   h=58
+  │   ├── Slicer [x=0   w=287]
+  │   ├── Slicer [x=300 w=287]
+  │   ├── Slicer [x=599 w=287]
+  │   └── Slicer [x=899 w=286]
+  ├── Group "KPI Row"             y=187 h=114
+  │   ├── KPI Card [x=75  w=260]
+  │   ├── KPI Card [x=343 w=260]
+  │   ├── KPI Card [x=610 w=260]
+  │   └── KPI Card [x=903 w=356]
+  └── Group "Chart Row"           y=307 h=390
+      ├── Chart [x=75  w=374]
+      ├── Chart [x=459 w=411]
+      └── Chart [x=903 w=356]`
+    },
+    {
+      title:'Create reusable CHOP components',
+      badge:'Components',
+      body:`Build a Figma component library matching each .pbix visual type. For the <strong>KPI Card</strong>: a 260×114 frame, fill <span class="inline-code">color/bg/page</span>, border <span class="inline-code">color/border/default 0.5px</span>, containing a label text (Arial 10.5px, <span class="inline-code">color/text/secondary</span>) and value text (Arial Bold 36px, <span class="inline-code">color/data/3-pink</span>). For <strong>Slicers</strong>: use Calibri 10px, border <span class="inline-code">color/brand/cyan</span>. Create variants for each chart type.`,
+      code:`// KPI Card component structure
+Component "CHOP/KPI Card" [260×114]
+  fill: color/bg/page (#fcfcfd)
+  border: 0.5px color/border/default (#cdced6)
+  padding: 16px
+  ├── Text "label"   Arial 10.5px  color/text/secondary  position: above
+  └── Text "value"   Arial Bold 36px  color/data/3-pink   text-align: center
+
+// Slicer component
+Component "CHOP/Slicer/Dropdown" [auto × 54]
+  fill: color/bg/page
+  border: 0.5px color/brand/cyan
+  padding: 0
+  ├── Header  Calibri Bold 10px    color/brand/navy
+  └── Item    Calibri Regular 10px color/text/primary bg: #FFFFFF
+
+// Chart placeholder
+Component "CHOP/Chart/Placeholder" [auto × auto]
+  fill: color/bg/page
+  border: 0.5px color/border/default
+  padding: 16px
+  └── Label   Segoe UI 9px  color/text/secondary`
+    },
+    {
+      title:'Import your Qlik screenshot into the CHOP frame',
+      badge:'Screenshot overlay',
+      body:`Paste your Qlik screenshot into Figma (⌘V). Place it on a separate layer called <span class="inline-code">ref/qlik-screenshot</span>. Set its opacity to <strong>40%</strong> so it becomes a reference underlay. Resize it to 1260×720 to align with your CHOP frame. Now trace over it: place CHOP components (KPI cards, slicers, chart placeholders) at the positions that match the Qlik visual positions, snapping to the CHOP pixel grid.`,
+      code:`Layers panel structure:
+  ▸ Frame "CHOP/Sample Page Layout"   ← your working frame
+      ├── [all CHOP components above]
+      └── Image "ref/qlik-screenshot"
+            opacity: 40%
+            blend mode: Normal
+            x=58 y=0 w=1202 h=720   ← inside sidebar
+
+// Tip: use Figma's "Compare" view (⌥ drag) to 
+// toggle between Qlik original and CHOP redesign`
+    },
+    {
+      title:'Apply CHOP theme via Figma API (automated)',
+      badge:'Figma API',
+      body:`Use the Figma REST API to programmatically apply CHOP colors to every node in your file. First fetch the file's node tree, then iterate over nodes matching visual types (fill rectangles, text layers) and PATCH their fill colors to the CHOP palette. This is the fastest way to recolor an entire screenshot tracing in one pass. See the "Figma API code" tab for the full script.`,
+      code:`// High-level API flow
+1. GET /files/{fileKey}                 → full node tree
+2. Filter nodes by type (RECTANGLE, TEXT)
+3. Map each node's current color → nearest CHOP color
+4. PATCH /files/{fileKey}/nodes        → apply new fills
+5. GET /files/{fileKey}/images         → export result`
+    },
+    {
+      title:'Export back to Power BI via Figma → .pbit',
+      badge:'Round-trip',
+      body:`Once your Figma design uses CHOP standards throughout, use the Figma API to read the final frame layout (x, y, w, h for each visual placeholder) and feed those pixel coordinates directly into your Power BI template JSON spec. This ensures the Power BI report canvas matches the Figma design pixel-for-pixel, completing the round-trip from Qlik screenshot → CHOP Figma design → Power BI report.`,
+      code:`// Round-trip: Figma frame positions → Power BI spec
+const figmaFrame = await fetch('/files/KEY/nodes?ids=FRAME_ID');
+const nodes = figmaFrame.document.children;
+
+const pbiVisuals = nodes.map(node => ({
+  type:    mapFigmaTypeToPBI(node.name),  // KPI Card → cardVisual
+  x:       Math.round(node.absoluteBoundingBox.x - 58), // offset sidebar
+  y:       Math.round(node.absoluteBoundingBox.y),
+  width:   Math.round(node.absoluteBoundingBox.width),
+  height:  Math.round(node.absoluteBoundingBox.height),
+  theme:   'CHOP_20264117488249465352.json'
+}));`
+    },
+  ]
+};
+
+function buildColors(){
+  const c=document.getElementById('colorRows');
+  c.innerHTML=CHOP.colors.map(t=>`
+    <div class="token-row">
+      <div class="swatch" style="background:${t.hex}"></div>
+      <span class="token-name">${t.name}</span>
+      <span class="token-hex">${t.hex}</span>
+      <span class="token-usage">${t.usage}</span>
+      <button class="copy-hex" onclick="copyText('${t.hex}',this)">Copy</button>
+    </div>`).join('');
+}
+
+function buildTypography(){
+  const c=document.getElementById('typRows');
+  c.innerHTML=CHOP.typography.map(t=>`
+    <div class="token-row">
+      <span class="token-name">${t.name}</span>
+      <span class="token-hex" style="min-width:160px">${t.spec}</span>
+      <span class="token-usage">${t.usage}</span>
+    </div>`).join('');
+}
+
+function buildSpacing(){
+  const rows=[
+    {name:'Visual padding',  value:'16px all sides', usage:'All visual containers'},
+    {name:'Border radius',   value:'0px',            usage:'All visuals (square corners)'},
+    {name:'Border width',    value:'0.5px',          usage:'Visual borders, dividers'},
+    {name:'Grid line',       value:'1px solid #e0e1e6', usage:'Chart axis gridlines'},
+    {name:'Row padding',     value:'4px',            usage:'Table row padding'},
+    {name:'Legend position', value:'Top',            usage:'All chart legends'},
+    {name:'Title show',      value:'true',           usage:'All visual titles visible'},
+    {name:'Drop shadow',     value:'off',            usage:'No shadows on any visual'},
+  ];
+  const c=document.getElementById('spacingRows');
+  c.innerHTML=rows.map(t=>`
+    <div class="token-row">
+      <span class="token-name">${t.name}</span>
+      <span class="token-hex" style="min-width:140px">${t.value}</span>
+      <span class="token-usage">${t.usage}</span>
+    </div>`).join('');
+}
+
+function buildLayout(){
+  const c=document.getElementById('layoutRows');
+  c.innerHTML=CHOP.layout.map(l=>`
+    <div class="token-row">
+      <span class="token-name" style="min-width:170px">${l.name}</span>
+      <span class="token-hex" style="min-width:200px;font-family:'Courier New',monospace;font-size:11px">${l.value}</span>
+      <span class="token-usage" style="color:var(--color-text-info)">${l.figma}</span>
+    </div>`).join('');
+}
+
+function buildSteps(){
+  const c=document.getElementById('stepsContainer');
+  c.innerHTML=CHOP.steps.map((s,i)=>`
+    <div class="step-card">
+      <div class="step-head" onclick="toggleStep(${i})">
+        <div class="step-num-circle">${i+1}</div>
+        <div class="step-head-title">${s.title}</div>
+        <span class="step-head-badge">${s.badge}</span>
+        <span class="chevron" id="chev${i}">&#9660;</span>
+      </div>
+      <div class="step-body" id="body${i}">
+        <p>${s.body}</p>
+        <div class="code-block">${s.code}</div>
+      </div>
+    </div>`).join('');
+  toggleStep(0);
+}
+
+function toggleStep(i){
+  const body=document.getElementById('body'+i);
+  const chev=document.getElementById('chev'+i);
+  const isOpen=body.classList.contains('open');
+  body.classList.toggle('open',!isOpen);
+  chev.classList.toggle('open',!isOpen);
+}
+
+function buildAPI(){
+  const apis=[
+    {title:'GET file node tree',method:'GET',endpoint:'/v1/files/{fileKey}',desc:'Fetch entire Figma file structure including all frames, components, and their bounding boxes.'},
+    {title:'GET specific nodes',method:'GET',endpoint:'/v1/files/{fileKey}/nodes?ids={nodeIds}',desc:'Fetch specific frames (e.g. the CHOP template frame) by node ID.'},
+    {title:'GET images / export',method:'GET',endpoint:'/v1/images/{fileKey}?ids={nodeId}&format=png&scale=2',desc:'Export any frame or node as a PNG for use in Power BI or comparison with Qlik screenshot.'},
+    {title:'POST frame via plugin',method:'Plugin API',endpoint:'figma.createFrame() + figma.createRectangle()',desc:'Use the Figma Plugin API inside a plugin script to programmatically create CHOP-compliant frames and apply color variables.'},
+  ];
+  document.getElementById('apiCards').innerHTML=apis.map(a=>`
+    <div class="api-card">
+      <div class="api-title"><span style="color:#005587;font-family:'Courier New',monospace">${a.method}</span>  ${a.title}</div>
+      <div style="font-size:10px;font-family:'Courier New',monospace;color:var(--color-text-secondary);margin:3px 0">${a.endpoint}</div>
+      <div class="api-desc">${a.desc}</div>
+    </div>`).join('');
+
+  document.getElementById('pluginCode').textContent=
+`// Figma Plugin — apply CHOP 2026 standards to selected frame
+// Run this inside Figma via Plugins → Development → New Plugin
+
+const CHOP_COLORS = {
+  navy:   { r:0,    g:0.333, b:0.529 },   // #005587
+  cyan:   { r:0.255,g:0.714, b:0.902 },   // #41B6E6
+  pink:   { r:0.882,g:0.090, b:0.420 },   // #E1176B
+  green:  { r:0.435,g:0.592, b:0.169 },   // #6F972B
+  border: { r:0.804,g:0.808, b:0.839 },   // #cdced6
+  bg:     { r:0.988,g:0.988, b:0.992 },   // #fcfcfd
+  text:   { r:0.110,g:0.125, b:0.141 },   // #1c2024
+};
+
+const CHOP_FONTS = {
+  kpiValue: { family:'Arial', style:'Bold', size:36 },
+  kpiLabel: { family:'Arial', style:'Regular', size:10.5 },
+  title:    { family:'Segoe UI', style:'Bold', size:14 },
+  axis:     { family:'Segoe UI', style:'Regular', size:9 },
+};
+
+// Apply sidebar
+const sidebar = figma.createRectangle();
+sidebar.x = 0; sidebar.y = 0;
+sidebar.resize(58, 720);
+sidebar.fills = [{ type:'SOLID', color: CHOP_COLORS.navy }];
+sidebar.name = 'Sidebar';
+
+// Apply colors to all selected rectangles
+for (const node of figma.currentPage.selection) {
+  if (node.type === 'RECTANGLE') {
+    node.fills = [{ type:'SOLID', color: CHOP_COLORS.bg }];
+    node.strokes = [{ type:'SOLID', color: CHOP_COLORS.border }];
+    node.strokeWeight = 0.5;
+    node.cornerRadius = 0;
+  }
+  if (node.type === 'TEXT') {
+    await figma.loadFontAsync(CHOP_FONTS.title);
+    node.fontName = CHOP_FONTS.title;
+    node.fills = [{ type:'SOLID', color: CHOP_COLORS.text }];
+  }
+}
+figma.closePlugin('CHOP 2026 standards applied!');`;
+
+  document.getElementById('visionCode').textContent=
+`// Claude Vision + Figma API — screenshot → CHOP Figma frame
+// Step 1: send Qlik screenshot to Claude Vision
+const base64Screenshot = '...'; // your Qlik PNG as base64
+
+const analysis = await fetch('https://api.anthropic.com/v1/messages', {
+  method: 'POST',
+  headers: { 'x-api-key': ANTHROPIC_KEY, 'anthropic-version': '2023-06-01',
+             'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    model: 'claude-sonnet-4-20250514', max_tokens: 2000,
+    messages: [{ role: 'user', content: [
+      { type: 'image', source: { type:'base64', media_type:'image/png', data: base64Screenshot } },
+      { type: 'text', text: \`Analyse this Qlik dashboard screenshot.
+Return JSON: { visuals: [{type, title, approxX, approxY, approxW, approxH}],
+               kpis: [{label, value}], slicers: [{field}] }
+Map positions as percentages of a 1260x720 canvas.\` }
+    ]}]
+  })
+}).then(r=>r.json());
+
+const detected = JSON.parse(analysis.content[0].text);
+
+// Step 2: create CHOP Figma frame via REST API
+const FIGMA_KEY = 'YOUR_FIGMA_TOKEN';
+const FILE_KEY  = 'YOUR_FILE_KEY';
+
+// Map detected visuals → CHOP pixel positions
+const CHOP_SLOTS = {
+  kpi:    [{x:75,y:187,w:260,h:114},{x:343,y:187,w:260,h:114},
+           {x:610,y:187,w:260,h:114},{x:903,y:187,w:356,h:114}],
+  chart:  [{x:75,y:307,w:374,h:390},{x:459,y:307,w:411,h:390},
+           {x:903,y:307,w:356,h:390}],
+  slicer: [{x:0,y:0,w:287,h:58},{x:300,y:0,w:287,h:58},
+           {x:599,y:0,w:287,h:58},{x:899,y:0,w:286,h:58}],
+};
+
+// Output: Figma API node creation payload
+const nodes = [
+  { type:'RECTANGLE', name:'Sidebar', x:0, y:0, width:58, height:720,
+    fills:[{type:'SOLID', color:{r:0, g:0.333, b:0.529}}] },
+  ...detected.kpis.map((k,i) => ({
+    type:'FRAME', name:\`KPI/\${k.label}\`, ...CHOP_SLOTS.kpi[i],
+    fills:[{type:'SOLID', color:{r:0.988,g:0.988,b:0.992}}]
+  })),
+  ...detected.visuals.filter(v=>v.type.includes('chart')).map((v,i) => ({
+    type:'FRAME', name:\`Chart/\${v.title}\`, ...CHOP_SLOTS.chart[i]
+  }))
+];
+console.log('Figma nodes ready:', JSON.stringify(nodes, null, 2));`;
+}
+
+function showTab(name, el){
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.getElementById('tab-'+name).classList.add('on');
+  el.classList.add('on');
+}
+
+function copyText(text, btn){
+  navigator.clipboard.writeText(text).then(()=>{
+    btn.textContent='Copied!';
+    setTimeout(()=>btn.textContent='Copy',1400);
+  });
+}
+
+buildColors();
+buildTypography();
+buildSpacing();
+buildLayout();
+buildSteps();
+buildAPI();
+</script>
+</body></html>
