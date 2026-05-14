@@ -67,7 +67,7 @@ const activeUserData = [
   { date: "Apr 28", dau:  5950, wau: 17600, mau: 50200 },
   { date: "May 05", dau:  6100, wau: 17900, mau: 51000 },
   { date: "May 12", dau:  6050, wau: 18200, mau: 51800 },
-  { date: "May 19", dau:  6200, wau: 18500, mau: 52300 },
+  { date: "May 19", dau:  10000, wau: 18500, mau: 52300 },
 ];
 
 const featureUsageData = [
