@@ -10,7 +10,7 @@ const funnels = [
       { label: "Sign Up Form",  count: 24800, pct: 70.0 },
       { label: "Email Verify",  count: 18760, pct: 53.0 },
       { label: "Profile Setup", count: 14200, pct: 40.1 },
-      { label: "Active",        count: 10000, pct: 17.5 },
+      { label: "Active",        count: 6200,  pct: 17.5 },
     ],
   },
   {

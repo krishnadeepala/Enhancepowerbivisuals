@@ -8,7 +8,7 @@ const journeySteps = [
   { label: "Verified Email",        count: 18760, pct: 51.0, dropoff: 11.6 },
   { label: "Completed Onboarding",  count: 12980, pct: 35.6, dropoff: 15.4 },
   { label: "First Dashboard View",  count: 9840,  pct: 27.0, dropoff: 8.6  },
-  { label: "Active User",           count: 10000, pct: 17.5, dropoff: 9.5  },
+  { label: "Active User",           count: 6200,  pct: 17.5, dropoff: 9.5  },
 ];
 
 const pathData = [

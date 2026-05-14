@@ -16,7 +16,7 @@ const trendData = [
   { date: "Apr 28", dau: 5950,  wau: 17600, mau: 50200 },
   { date: "May 05", dau: 6100,  wau: 17900, mau: 51000 },
   { date: "May 12", dau: 6050,  wau: 18200, mau: 51800 },
-  { date: "May 19", dau: 10000, wau: 18500, mau: 52300 },
+  { date: "May 19", dau: 6200,  wau: 18500, mau: 52300 },
 ];
 
 const adoptionData = [
@@ -54,7 +54,7 @@ const funnelSteps = [
   { label: "Signed Up",            count: 22180, pct: 62.6 },
   { label: "Verified Email",       count: 18760, pct: 51.0 },
   { label: "Completed Onboarding", count: 12980, pct: 35.6 },
-  { label: "Active User",          count: 10000, pct: 17.5 },
+  { label: "Active User",          count: 6200,  pct: 17.5 },
 ];
 
 const cohortData = [
@@ -74,9 +74,9 @@ const engagementRows = [
 const kpiCards = [
   {
     id: "dau", Icon: Users, iconColor: C.navy,
-    label: "Active Users (DAU)", value: "10,000",
+    label: "Active Users (DAU)", value: "6,200",
     change: "+8.6%", positive: true, comparison: "vs Apr 14 – May 12",
-    spark: [5400, 5550, 5650, 5800, 5900, 5850, 5950, 6100, 6050, 10000],
+    spark: [5400, 5550, 5650, 5800, 5900, 5850, 5950, 6100, 6050, 6200],
     sparkColor: C.navy,
   },
   {
