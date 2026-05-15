@@ -16,7 +16,7 @@ const trendData = [
   { date: "Apr 28", dau: 5950,  wau: 17600, mau: 50200 },
   { date: "May 05", dau: 6100,  wau: 17900, mau: 51000 },
   { date: "May 12", dau: 6050,  wau: 18200, mau: 51800 },
-  { date: "May 19", dau: 10000, wau: 18500, mau: 52300 },
+  { date: "May 19", dau: 10000, wau: 21000, mau: 52300 },
 ];
 
 const adoptionData = [
@@ -81,9 +81,9 @@ const kpiCards = [
   },
   {
     id: "wau", Icon: Users, iconColor: C.midBlue,
-    label: "Active Users (WAU)", value: "18,500",
+    label: "Active Users (WAU)", value: "21,000",
     change: "+7.9%", positive: true, comparison: "vs Apr 14 – May 12",
-    spark: [16200, 16600, 16900, 17200, 17400, 17600, 17800, 18000, 18300, 18500],
+    spark: [16200, 16600, 16900, 17200, 17400, 17600, 17800, 18000, 18300, 21000],
     sparkColor: C.midBlue,
   },
   {
@@ -399,7 +399,7 @@ function TopPlatforms() {
           ))}
           <div style={{ marginTop: 6, fontSize: 10, color: C.muted, borderTop: `0.5px solid ${C.border}`, paddingTop: 6 }}>
             Total Users<br />
-            <span style={{ fontSize: 16, fontWeight: 700, color: C.fg }}>18,500</span>
+            <span style={{ fontSize: 16, fontWeight: 700, color: C.fg }}>21,000</span>
           </div>
         </div>
       </div>
@@ -514,7 +514,7 @@ function UserSegmentDistribution() {
               textAlign: "center", pointerEvents: "none",
             }}
           >
-            <div style={{ fontSize: 15, fontWeight: 700, color: C.fg, lineHeight: 1 }}>18,500</div>
+            <div style={{ fontSize: 15, fontWeight: 700, color: C.fg, lineHeight: 1 }}>21,000</div>
             <div style={{ fontSize: 8, color: C.muted }}>Total Users</div>
           </div>
         </div>

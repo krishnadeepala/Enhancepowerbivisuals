@@ -16,7 +16,7 @@ const funnels = [
   {
     name: "Purchase Funnel",
     steps: [
-      { label: "Product View", count: 18500, pct: 100  },
+      { label: "Product View", count: 21000, pct: 100  },
       { label: "Add to Cart",  count: 9200,  pct: 49.7 },
       { label: "Checkout",     count: 5800,  pct: 31.4 },
       { label: "Payment",      count: 4200,  pct: 22.7 },

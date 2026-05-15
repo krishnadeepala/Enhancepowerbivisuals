@@ -67,7 +67,7 @@ const activeUserData = [
   { date: "Apr 28", dau:  5950, wau: 17600, mau: 50200 },
   { date: "May 05", dau:  6100, wau: 17900, mau: 51000 },
   { date: "May 12", dau:  6050, wau: 18200, mau: 51800 },
-  { date: "May 19", dau:  10000, wau: 18500, mau: 52300 },
+  { date: "May 19", dau:  10000, wau: 21000, mau: 52300 },
 ];
 
 const featureUsageData = [
@@ -484,7 +484,7 @@ function PlatformUsage() {
           ))}
           <div style={{ marginTop: 8, paddingTop: 8, borderTop: `0.5px solid ${C.border}`, fontSize: 9.5, color: C.muted }}>
             Total Users<br />
-            <span style={{ fontSize: 17, fontWeight: 700, color: C.fg }}>18,500</span>
+            <span style={{ fontSize: 17, fontWeight: 700, color: C.fg }}>21,000</span>
           </div>
         </div>
       </div>
@@ -554,7 +554,7 @@ function ExecutiveSummaryContent() {
         />
         <KPICard
           icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>}
-          iconBg="#ede9fe" label="Active Users (WAU)" value="18,500"
+          iconBg="#ede9fe" label="Active Users (WAU)" value="21,000"
           change="+8.3%" positive compare="vs last 7 days"
         />
         <KPICard
